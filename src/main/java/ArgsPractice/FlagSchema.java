@@ -2,18 +2,18 @@ package ArgsPractice;
 
 public class FlagSchema {
     private final String flag;
-    private final Object type;
+    private final ValueType valueType;
 
-    public FlagSchema(String flag, Object type){
+    public FlagSchema(String flag, ValueType valueType){
         this.flag = flag;
-        this.type = type;
+        this.valueType = valueType;
     }
 
     public boolean equalsByFlag(String flag) {
         return flag.equalsIgnoreCase(this.flag);
     }
 
-    public Object getType() {
-        return this.type;
+    public ValueType getType() {
+        return this.valueType;
     }
 }
