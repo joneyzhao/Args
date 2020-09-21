@@ -17,4 +17,13 @@ public class Schema {
                 .getType();
     }
 
+    public Object getDefaultValue(String flag){
+        return flagSchemas.stream()
+                .filter(flagSchema -> flagSchema.getFlag().equals(flag))
+                .findFirst()
+                .get()
+                .getDefaultValue();
+    }
+
+
 }
