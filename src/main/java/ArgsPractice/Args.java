@@ -15,7 +15,6 @@ public class Args {
     public List<KeyValuePair> scan() {
         List<String> keyValues = Arrays.asList(argsText.split("-"));
         keyValues = keyValues.stream()
-//                .map(String::trim)
                 .map(keyValue -> keyValue.trim())
                 .collect(Collectors.toList());
         keyValues = keyValues.subList(1, keyValues.size());
@@ -32,10 +31,5 @@ public class Args {
             keyValuePairs.add(new KeyValuePair(key, value));
         });
         return keyValuePairs;
-    }
-
-    public List<String> scan2() {
-        List<String> keyValues = Arrays.asList(" ".concat(argsText).split("-"));
-        return keyValues.subList(1, keyValues.size());
     }
 }
