@@ -1,6 +1,7 @@
 package ArgsPractice;
 
 public class FlagSchema {
+
     private final String flag;
     private final ValueType valueType;
 
@@ -13,7 +14,15 @@ public class FlagSchema {
         return flag.equalsIgnoreCase(this.flag);
     }
 
-    public ValueType getType() {
-        return this.valueType;
+    public String getFlag() {
+        return flag;
+    }
+
+    public Object getDefaultValue(){
+        return this.valueType.getDefaultValue();
+    }
+
+    public String getType() {
+        this.valueType.getType();
     }
 }
