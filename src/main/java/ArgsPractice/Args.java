@@ -32,4 +32,8 @@ public class Args {
         });
         return keyValuePairs;
     }
+//
+//    public Object getValueOf(String flag){
+//
+//    }
 }

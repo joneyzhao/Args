@@ -3,7 +3,7 @@ package ArgsPractice;
 import java.util.Set;
 
 public class Schema {
-    private Set<FlagSchema> flagSchemas;
+    public Set<FlagSchema> flagSchemas;
 
     public Schema(Set<FlagSchema> flagSchemas){
         this.flagSchemas = flagSchemas;
