@@ -1,8 +1,8 @@
 package ArgsPractice;
 
 public enum ValueType {
-    BOOLEAN("false"),
-    INTEGER("0"),
+    BOOLEAN(false),
+    INTEGER(0),
     STRING("");
 
 
