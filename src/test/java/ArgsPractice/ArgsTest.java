@@ -17,7 +17,6 @@ public class ArgsTest {
     private Schema schema;
 
     @Before
-
     public void init(){
         String argsText = "-l true -p 8080 -d user/logs";
 

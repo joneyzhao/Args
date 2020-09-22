@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Args {
-
     private List<Arg> argList = new ArrayList<>();
     private String argsText;
     private Schema schema;
@@ -17,6 +16,11 @@ public class Args {
     }
 
     public List mapToArgPairs() {
+        ArgsTextCheck argsTextCheck = new ArgsTextCheck(argsText);
+        argsTextCheck.antiDuplicationCheck();
+        argsTextCheck.illegalBlankSpaceBetweenFlagCheck();
+        argsTextCheck.illegalNoBlankSpaceBetweenArgCheck();
+
         List<String> argPairsList = Arrays.asList(argsText.split("-"));
         argPairsList = argPairsList.stream()
                 .map(keyValue -> keyValue.trim())
