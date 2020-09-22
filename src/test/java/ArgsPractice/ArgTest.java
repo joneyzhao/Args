@@ -31,6 +31,20 @@ public class ArgTest {
     }
 
     @Test
+    public void should_return_illegal_when_getFlag_m_given_Arg() {
+        Arg arg = new Arg("m true", schema);
+
+        String flag = null;
+        try {
+            flag = arg.getFlag();
+        } catch (Exception e) {
+            System.out.println("参数类型非法");
+        }
+
+        assertEquals(null, flag);
+    }
+
+    @Test
     public void should_return_Boolean_when_withFlag_given_Arg() throws Exception {
         Arg arg = new Arg("l true", schema);
 

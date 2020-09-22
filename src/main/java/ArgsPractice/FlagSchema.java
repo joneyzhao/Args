@@ -23,15 +23,6 @@ public class FlagSchema {
     }
 
     public Object getType() {
-        if(this.valueType == ValueType.BOOLEAN){
-            return Boolean.TYPE;
-        }
-        if(this.valueType == ValueType.INTEGER){
-            return Integer.TYPE;
-        }
-        if(this.valueType == ValueType.STRING){
-            return String.class.getSimpleName();
-        }
-        return null;
+        return this.valueType;
     }
 }

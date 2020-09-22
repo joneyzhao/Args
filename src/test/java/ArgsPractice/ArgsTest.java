@@ -1,6 +1,5 @@
 package ArgsPractice;
 
-import org.hamcrest.Condition;
 import org.junit.Before;
 import org.junit.Test;
 

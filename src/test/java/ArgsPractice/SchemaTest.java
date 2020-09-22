@@ -23,9 +23,9 @@ public class SchemaTest {
 
     @Test
     public void should_return_value_type_when_getTypeOf_given_flag() {
-        assertEquals(Boolean.TYPE, schema.getTypeOf("l"));
-        assertEquals(Integer.TYPE, schema.getTypeOf("p"));
-        assertEquals(String.class.getSimpleName(), schema.getTypeOf("d"));
+        assertEquals(ValueType.BOOLEAN, schema.getTypeOf("l"));
+        assertEquals(ValueType.INTEGER, schema.getTypeOf("p"));
+        assertEquals(ValueType.STRING, schema.getTypeOf("d"));
     }
 
     @Test

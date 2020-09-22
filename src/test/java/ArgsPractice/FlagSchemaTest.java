@@ -26,7 +26,8 @@ public class FlagSchemaTest {
         FlagSchema flagSchema = new FlagSchema("l", ValueType.BOOLEAN);
 
         Object type = flagSchema.getType();
-        assertEquals(Boolean.TYPE, type);
+//        assertEquals(Boolean.TYPE, type);
+        assertEquals(ValueType.BOOLEAN, type);
     }
 
 }

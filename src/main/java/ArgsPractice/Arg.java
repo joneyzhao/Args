@@ -4,10 +4,7 @@ import java.util.Objects;
 
 public class Arg {
     private final Schema schema;
-
     private String argPair;
-
-    private String flag;
 
     public Arg(String argPair, Schema schema){
         this.argPair = argPair;
@@ -31,29 +28,22 @@ public class Arg {
         String [] splitKeyValue = this.argPair.split(" ");
         String flag = getFlag();
         Object defaultValue = schema.getDefaultValue(flag);
-
         if(splitKeyValue.length <= 1){
             return defaultValue;
         }
 
-        Object type = schema.flagSchemas.stream()
-                .filter(flagSchema -> flagSchema.equalsByFlag(flag))
-                .findFirst()
-                .get()
-                .getType();
+        Object type = schema.getTypeOf(flag);
 
-        if(Boolean.TYPE == type){
+        if(ValueType.BOOLEAN == type){
             return Boolean.valueOf(splitKeyValue[1]);
         }
-        if(Integer.TYPE == type){
+        if(ValueType.INTEGER == type){
             return Integer.valueOf(splitKeyValue[1]);
         }
-        if(String.class.getSimpleName() == type){
-            return String.valueOf(splitKeyValue[1]);
+        if(ValueType.STRING == type){
+            return splitKeyValue[1];
         }
-
-        String value = splitKeyValue[1];
-        return value;
+        return null;
     }
 
 
@@ -65,13 +55,12 @@ public class Arg {
         if (o == null || getClass() != o.getClass()) return false;
         Arg arg = (Arg) o;
         return Objects.equals(schema, arg.schema) &&
-                Objects.equals(argPair, arg.argPair) &&
-                Objects.equals(flag, arg.flag);
+                Objects.equals(argPair, arg.argPair);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(schema, argPair, flag);
+        return Objects.hash(schema, argPair);
     }
 
 }
