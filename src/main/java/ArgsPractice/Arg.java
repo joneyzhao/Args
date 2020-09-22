@@ -1,7 +1,10 @@
 package ArgsPractice;
 
+import java.util.Objects;
+
 public class Arg {
     private final Schema schema;
+
     private String argPair;
 
     private String flag;
@@ -39,7 +42,36 @@ public class Arg {
                 .get()
                 .getType();
 
+        if(Boolean.TYPE == type){
+            return Boolean.valueOf(splitKeyValue[1]);
+        }
+        if(Integer.TYPE == type){
+            return Integer.valueOf(splitKeyValue[1]);
+        }
+        if(String.class.getSimpleName() == type){
+            return String.valueOf(splitKeyValue[1]);
+        }
+
         String value = splitKeyValue[1];
         return value;
     }
+
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Arg arg = (Arg) o;
+        return Objects.equals(schema, arg.schema) &&
+                Objects.equals(argPair, arg.argPair) &&
+                Objects.equals(flag, arg.flag);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(schema, argPair, flag);
+    }
+
 }
