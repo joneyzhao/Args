@@ -27,5 +27,19 @@ public class ArgsTextCheckTest {
         assertEquals(false, hasIllegalBlankSpace);
     }
 
+    @Test
+    public void should_return_true_when_illegalNoBlankSpaceBetweenArgCheck_given_argsText(){
+        ArgsTextCheck argsTextCheck = new ArgsTextCheck("-l-p true -l 8080 - d user/logs");
+
+        Boolean isDuplication = argsTextCheck.antiDuplicationCheck();
+        Boolean hasIllegalBlankSpace = argsTextCheck.illegalBlankSpaceBetweenFlagCheck();
+        Boolean noBlankSpaceBetweenArg = argsTextCheck.illegalNoBlankSpaceBetweenArgCheck();
+
+        assertEquals(false, isDuplication);
+        assertEquals(false, hasIllegalBlankSpace);
+        assertEquals(false, noBlankSpaceBetweenArg);
+    }
+
+
 
 }

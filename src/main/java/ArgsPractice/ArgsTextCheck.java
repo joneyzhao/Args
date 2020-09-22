@@ -16,7 +16,7 @@ public class ArgsTextCheck {
             int counts = (argsText.length()-argsText.replaceAll(schemaFlag, "").length())/2;
             System.out.println("1===" + argsText);
             if(counts > 1){
-                System.out.println("不允许输入重复flag");
+                System.out.println("不允许输入重复flag！");
                 return false;
             }
         }
@@ -27,10 +27,19 @@ public class ArgsTextCheck {
         Boolean hasIllegalBlankSpaceBetweenFlag = argsText.indexOf("- l") != -1 || argsText.indexOf("- p") != -1 || argsText.indexOf("- d") != -1;
 
         if(hasIllegalBlankSpaceBetweenFlag){
-            System.out.println("不允许在-和flag存在空格");
+            System.out.println("不允许在-和flag存在空格！");
             return false;
         }
         return true;
     }
 
+    public Boolean illegalNoBlankSpaceBetweenArgCheck(){
+        Boolean noBlankSpaceBetweenArg = argsText.indexOf("-l-") != -1 || argsText.indexOf("-p-") != -1 || argsText.indexOf("-d-") != -1;
+
+        if(noBlankSpaceBetweenArg){
+            System.out.println("参数之间未用空格分割！");
+            return false;
+        }
+        return true;
+    }
 }
