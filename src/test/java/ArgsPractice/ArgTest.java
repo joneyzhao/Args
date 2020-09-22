@@ -76,4 +76,18 @@ public class ArgTest {
 
         assertEquals(true, value);
     }
+
+    @Test
+    public void should_return_value_when_parseValue_given_wrong_Arg(){
+        Arg arg = new Arg("p 80 80", schema);
+
+        Object value = null;
+        try {
+            value = arg.parseValue();
+        } catch (Exception e) {
+            System.out.println("传入的参数value中间有空格");
+        }
+
+        assertEquals(null, value);
+    }
 }

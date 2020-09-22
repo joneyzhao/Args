@@ -26,6 +26,9 @@ public class Arg {
 
     public Object parseValue() throws Exception {
         String [] splitKeyValue = this.argPair.split(" ");
+        if (splitKeyValue.length > 2){
+            throw new Exception("传入的参数value中间有空格！");
+        }
         String flag = getFlag();
         Object defaultValue = schema.getDefaultValue(flag);
         if(splitKeyValue.length <= 1){
