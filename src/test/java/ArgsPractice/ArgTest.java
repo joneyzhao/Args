@@ -54,12 +54,18 @@ public class ArgTest {
     }
 
     @Test
-    public void should_return_defaultValue_when_parseValue_given_Arg() throws Exception {
-        Arg arg = new Arg("l ", schema);
+    public void should_return_default_Value_when_parseValue_given_Arg() throws Exception {
+        Arg argOne = new Arg("l ", schema);
+        Arg argTwo = new Arg("p ", schema);
+        Arg argThree = new Arg("d ", schema);
 
-        Object value = arg.parseValue();
+        Object defaultValueOne = argOne.parseValue();
+        Object defaultValueTwo = argTwo.parseValue();
+        Object defaultValueThree = argThree.parseValue();
 
-        assertEquals(false, value);
+        assertEquals(false, defaultValueOne);
+        assertEquals(0, defaultValueTwo);
+        assertEquals("", defaultValueThree);
     }
 
     @Test
